@@ -3,6 +3,7 @@
 Type what you want to do, get the command for it. A searchable reference for common Kali Linux tools and commands — no more trying to remember whether it's `-sV` or `-sS`.
 
 ## Usage
+# interactive mode 
 process 
 
 unzip kali-cmd-finder.zip && cd kali-cmd-finder
@@ -21,6 +22,16 @@ python3 search.py
 python3 search.py "scan ports"
 python3 search.py "crack a hash"
 python3 search.py "wifi"
+process 
+
+unzip kali-cmd-finder.zip && cd kali-cmd-finder
+git init
+git add .
+git commit -m "Initial commit: Kali command finder"
+# create an empty repo on github.com first, then:
+git remote add origin https://github.com/<your-username>/kali-cmd-finder.git
+git branch -M main
+git push -u origin main
 ```
 
 Example:
